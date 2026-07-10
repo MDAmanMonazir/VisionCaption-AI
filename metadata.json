@@ -1,0 +1,6 @@
+{
+  "name": "VisionCaption AI",
+  "description": "A high-fidelity full-stack image captioning assistant that analyzes frames using server-side FireWorks, producing four distinct styled personas (Formal, Sarcastic, Humorous, and Developer Humour).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
