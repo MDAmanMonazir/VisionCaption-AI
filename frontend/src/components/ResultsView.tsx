@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
-import { 
-  Copy, Check, Download, Edit2, Save, X, RefreshCw, 
-  BookOpen, Ghost, Terminal, Sparkles, AlertCircle 
+import {
+  Copy, Check, Download, Edit2, Save, X, RefreshCw,
+  BookOpen, Ghost, Terminal, Sparkles, AlertCircle
 } from "lucide-react";
 import { UploadedItem, CaptionStyle, CaptionData } from "../types";
 
@@ -65,10 +65,10 @@ export default function ResultsView({ item, onUpdateItem, onNavigateToUpload }: 
 
   const saveEdit = (style: CaptionStyle) => {
     if (!editText.trim()) return;
-    
+
     const updatedCaptions = { ...item.captions };
     const targetCaption = updatedCaptions[style];
-    
+
     updatedCaptions[style] = {
       ...targetCaption,
       text: editText,
@@ -80,7 +80,7 @@ export default function ResultsView({ item, onUpdateItem, onNavigateToUpload }: 
       ...item,
       captions: updatedCaptions,
     });
-    
+
     setEditingStyle(null);
   };
 
@@ -112,7 +112,7 @@ export default function ResultsView({ item, onUpdateItem, onNavigateToUpload }: 
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 py-4">
-      
+
       {/* Fallback Banner */}
       {item.isFallback && (
         <div className="lg:col-span-12 bg-[#f59e0b]/10 border border-[#f59e0b]/30 rounded-2xl p-5 flex items-start gap-4 shadow-lg shadow-[#f59e0b]/2">
@@ -120,21 +120,21 @@ export default function ResultsView({ item, onUpdateItem, onNavigateToUpload }: 
           <div className="flex-1 text-xs">
             <h4 className="font-display font-bold text-[#fbcfe8] text-sm">High AI Service Demand (Auto-Mitigated)</h4>
             <p className="text-[#c7c4d7] font-light mt-1.5 leading-relaxed">
-              Google Gemini is currently experiencing a temporary surge in global demand. To keep your workspace active and uninterrupted, our high-fidelity custom summarizer has processed your content and mapped contextually aligned style personas.
+              FireWorks is currently experiencing a temporary surge in global demand. To keep your workspace active and uninterrupted, our high-fidelity custom summarizer has processed your content and mapped contextually aligned style personas.
             </p>
           </div>
         </div>
       )}
-      
+
       {/* Left side: Uploaded image and AI Confidence info */}
       <div className="lg:col-span-5 space-y-6">
         <div className="glass-panel rounded-2xl p-3 overflow-hidden shadow-xl border border-white/5">
           <div className="aspect-[4/3] w-full rounded-xl bg-black relative overflow-hidden group">
-            <img 
+            <img
               referrerPolicy="no-referrer"
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-101" 
-              src={item.imageUrl} 
-              alt={item.title} 
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-101"
+              src={item.imageUrl}
+              alt={item.title}
             />
           </div>
         </div>
@@ -151,12 +151,12 @@ export default function ResultsView({ item, onUpdateItem, onNavigateToUpload }: 
           <div className="relative w-14 h-14 flex items-center justify-center">
             <svg className="w-full h-full transform -rotate-90">
               <circle cx="28" cy="28" r="24" className="stroke-white/5 fill-none" strokeWidth="4" />
-              <circle 
-                cx="28" 
-                cy="28" 
-                r="24" 
-                className="stroke-[#c0c1ff] fill-none transition-all duration-1000" 
-                strokeWidth="4" 
+              <circle
+                cx="28"
+                cy="28"
+                r="24"
+                className="stroke-[#c0c1ff] fill-none transition-all duration-1000"
+                strokeWidth="4"
                 strokeDasharray={2 * Math.PI * 24}
                 strokeDashoffset={2 * Math.PI * 24 * (1 - item.confidence / 100)}
               />
@@ -188,14 +188,14 @@ export default function ResultsView({ item, onUpdateItem, onNavigateToUpload }: 
 
         {/* Bottom controls */}
         <div className="flex flex-col sm:flex-row gap-3">
-          <button 
+          <button
             onClick={onNavigateToUpload}
             className="flex-1 py-3 px-5 rounded-xl border border-white/10 hover:bg-white/5 transition-colors font-semibold text-sm flex items-center justify-center gap-2 text-white active:scale-95 cursor-pointer"
           >
             <RefreshCw className="w-4 h-4" /> Upload New
           </button>
-          
-          <button 
+
+          <button
             onClick={handleDownloadAll}
             className="flex-1 py-3 px-5 rounded-xl gradient-btn font-semibold text-sm flex items-center justify-center gap-2 text-white active:scale-95 cursor-pointer"
           >
@@ -246,26 +246,25 @@ export default function ResultsView({ item, onUpdateItem, onNavigateToUpload }: 
                   {/* Actions bar */}
                   {!isEditing && (
                     <div className="flex items-center gap-1.5">
-                      <button 
+                      <button
                         onClick={() => startEdit(style, caption.text)}
                         title="Edit Caption"
                         className="p-2 text-[#c7c4d7]/70 hover:text-white bg-white/3 hover:bg-white/8 rounded-lg transition-all cursor-pointer"
                       >
                         <Edit2 className="w-3.5 h-3.5" />
                       </button>
-                      <button 
+                      <button
                         onClick={() => handleDownloadSingle(caption)}
                         title="Download Caption Txt"
                         className="p-2 text-[#c7c4d7]/70 hover:text-white bg-white/3 hover:bg-white/8 rounded-lg transition-all cursor-pointer"
                       >
                         <Download className="w-3.5 h-3.5" />
                       </button>
-                      <button 
+                      <button
                         onClick={() => handleCopy(caption.text, style)}
                         title="Copy Caption"
-                        className={`p-2 bg-white/3 rounded-lg transition-all cursor-pointer ${
-                          copyStates[style] ? "text-[#89ceff] bg-[#89ceff]/10" : "text-[#c7c4d7]/70 hover:text-white hover:bg-white/8"
-                        }`}
+                        className={`p-2 bg-white/3 rounded-lg transition-all cursor-pointer ${copyStates[style] ? "text-[#89ceff] bg-[#89ceff]/10" : "text-[#c7c4d7]/70 hover:text-white hover:bg-white/8"
+                          }`}
                       >
                         {copyStates[style] ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                       </button>
@@ -283,13 +282,13 @@ export default function ResultsView({ item, onUpdateItem, onNavigateToUpload }: 
                       className="w-full bg-[#131b2e]/60 border border-[#c0c1ff]/30 focus:border-[#c0c1ff] focus:outline-none focus:ring-1 focus:ring-[#c0c1ff] rounded-xl p-3 text-sm text-white font-sans font-light resize-y"
                     />
                     <div className="flex gap-2 justify-end">
-                      <button 
+                      <button
                         onClick={() => setEditingStyle(null)}
                         className="py-1.5 px-3 border border-white/10 rounded-lg text-xs font-semibold text-[#c7c4d7] hover:bg-white/5 active:scale-95 cursor-pointer flex items-center gap-1"
                       >
                         <X className="w-3.5 h-3.5" /> Cancel
                       </button>
-                      <button 
+                      <button
                         onClick={() => saveEdit(style)}
                         className="py-1.5 px-3 bg-[#c0c1ff] hover:bg-[#c0c1ff]/90 text-[#0b1326] rounded-lg text-xs font-bold active:scale-95 cursor-pointer flex items-center gap-1"
                       >

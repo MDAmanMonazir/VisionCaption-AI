@@ -152,6 +152,8 @@ const DEFAULT_SETTINGS: UserSettings = {
   credits: 42
 };
 
+const API_BASE = import.meta.env.VITE_API_URL || "";
+
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<ScreenType>(() => {
     return localStorage.getItem("vc_logged_in") === "true" ? "landing" : "login";
@@ -240,7 +242,7 @@ export default function App() {
     setCurrentScreen("processing");
 
     try {
-      const response = await fetch("/api/caption", {
+      const response = await fetch(`${API_BASE}/api/caption`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

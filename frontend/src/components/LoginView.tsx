@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { BrainCircuit, Mail, ArrowRight, ShieldAlert, Sparkles, KeyRound, ShieldCheck, CornerUpLeft, ExternalLink, RefreshCw } from "lucide-react";
 
+const API_BASE = import.meta.env.VITE_API_URL || "";
+
 interface LoginViewProps {
   onLoginSuccess: (userName: string, userEmail: string) => void;
 }
@@ -43,7 +45,7 @@ export default function LoginView({ onLoginSuccess }: LoginViewProps) {
     setIsLoading(true);
 
     try {
-      const response = await fetch("/api/auth/send-otp", {
+      const response = await fetch(`${API_BASE}/api/auth/send-otp`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -88,7 +90,7 @@ export default function LoginView({ onLoginSuccess }: LoginViewProps) {
     setIsLoading(true);
 
     try {
-      const response = await fetch("/api/auth/verify-otp", {
+      const response = await fetch(`${API_BASE}/api/auth/verify-otp`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
