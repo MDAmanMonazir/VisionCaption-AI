@@ -434,7 +434,7 @@ Through teamwork, continuous experimentation, and the power of AMD Cloud and Fir
 |---------|---------|--------------|
 | **MD AMAN MONAZIR** *(Team Leader)* | UI/UX Designer & Full Stack Developer | System Design, Frontend & Backend Development |
 | **PRACHI GUPTA** | MERN Stack Developer | Full Stack Web Development |
-| **SYED NAAZMEEN** | Full Stack Developer | End-to-End Application Development |
+| **NAAZMEEN SYED** | Full Stack Developer | End-to-End Application Development |
 | **KOMAL KUMARI** | Backend Developer | API Development & Server-side Logic |
 | **KUMAR AVINASH** | Frontend Developer | UI Development & User Experience |
 
