@@ -2,6 +2,8 @@
 # 🎬 VisionCaption AI — AMD AI Hackathon 2026
 
 ### 🌐 Live Demo
+
+https://visioncaptionai-amd-hackathon.onrender.com/
 (https://visioncaption-ai22-1.onrender.com)
 
 **VisionCaption AI** is an AI-powered video captioning platform developed by **Team Code Smashers** for the **AMD AI Hackathon 2026** (Track 2 – *Video Captioning*).
